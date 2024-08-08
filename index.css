@@ -1,0 +1,667 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f3f3f3;
+    line-height: 1.6;
+}
+
+/* Estilos para el encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+nav ul li.active a {
+    background-color: #388E3C;
+}
+
+nav ul li a:hover {
+    background-color: #388E3C;
+    transform: scale(1.1);
+}
+
+/* Estilos para la sección de Recomendaciones de Ejercicio */
+#exercise {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.exercise-routines {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.exercise-routines article {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.exercise-routines article h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.exercise-routines article p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.exercise-routines article .button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.exercise-routines article .button:hover {
+    background-color: #388E3C;
+}
+
+
+
+/* Estilos para el blog */
+#blog {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#blog h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #388E3C;
+    text-align: center;
+}
+
+.articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.article {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.article img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.article h3 {
+    font-size: 1.5em;
+    color: #388E3C;
+}
+
+.article p {
+    font-size: 1em;
+    color: #555;
+    text-align: center;
+}
+
+/* Estilos para el artículo */
+#article {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#article h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #388E3C;
+}
+
+#article p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #555;
+}
+
+#article h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #388E3C;
+    text-align: left;
+}
+
+#article ul {
+    list-style: disc;
+    padding-left: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+#article ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#article .featured-image {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+#article blockquote {
+    background-color: #f9f9f9;
+    border-left: 5px solid #4caf50;
+    margin: 20px 0;
+    padding: 10px 20px;
+    color: #333;
+    text-align: left;
+    font-style: italic;
+}
+
+#article blockquote p {
+    margin: 0;
+}
+
+#article a {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#article a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para la página de inicio */
+.header-image {
+    background-image: url('images/header.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #fff;
+    padding: 100px 20px;
+}
+
+.header-image h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+#welcome {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#welcome h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #388E3C;
+}
+
+#welcome p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Estilos para la sección de testimonios */
+#testimonials {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#testimonials h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #388E3C;
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.testimonial {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.testimonial img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.testimonial p {
+    font-size: 1em;
+    color: #555;
+}
+
+.testimonial cite {
+    font-style: normal;
+    color: #888;
+}
+
+/* Estilos para la sección de comparación de alimentos */
+#comparison {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#comparison h2 {
+    color: #4caf50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.comparison-table {
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.comparison-table th, .comparison-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.comparison-table th {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.food-description {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-left: 5px solid #4caf50;
+}
+
+.food-description h3 {
+    color: #4caf50;
+    margin-top: 0;
+}
+
+.food-description p {
+    color: #333;
+}
+
+.note {
+    margin-top: 20px;
+    font-style: italic;
+    color: #777;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #4caf50;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        background-color: #4caf50;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+/* Estilos para el botón en la sección de Recomendaciones de Ejercicio */
+.exercise-routines article a.button {
+    display: block;
+    width: 150px; /* Ancho del botón */
+    margin: 10px auto; /* Centrado horizontal */
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.exercise-routines article a.button:hover {
+    background-color: #388E3C;
+}
+/* Estilos para la sección de Rutina para Principiantes */
+#routine-beginner {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#routine-beginner h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #388E3C;
+}
+
+#routine-beginner p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.exercise-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.exercise-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #388E3C;
+}
+
+.exercise-details p {
+    font-size: 1em;
+    color: #555;
+}
+/* Estilos para la sección de Rutina Intermedia */
+#routine-intermediate {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#routine-intermediate h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #388E3C;
+}
+
+#routine-intermediate p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.exercise-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.exercise-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #388E3C;
+}
+
+.exercise-details p {
+    font-size: 1em;
+    color: #555;
+}
+/* Estilos para la sección de Rutina Avanzada */
+#routine-advanced {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#routine-advanced h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #388E3C;
+}
+
+#routine-advanced p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.exercise-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.exercise-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #388E3C;
+}
+
+.exercise-details p {
+    font-size: 1em;
+    color: #555;
+}
+/* Estilos para la sección "Sobre Nosotros" */
+#about {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #388E3C;
+}
+
+#about p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.mission-vision {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.mission-vision h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #388E3C;
+}
+
+.mission-vision p {
+    font-size: 1em;
+    color: #555;
+}
+
+
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f3f3f3;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Ajustes específicos para pantallas menores */
+    /* Por ejemplo, cambiar el diseño de columnas a filas, ajustar tamaños de fuente, etc. */
+}
+
+/* Estilos para tabletas */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Ajustes específicos para tabletas */
+    /* Por ejemplo, ajustar márgenes, tamaños de fuente más grandes, etc. */
+}
+
+/* Estilos para computadoras de escritorio */
+@media (min-width: 1025px) {
+    /* Ajustes específicos para pantallas más grandes */
+    /* Por ejemplo, establecer anchos máximos para evitar que el contenido se expanda demasiado, ajustar márgenes, etc. */
+}
+
+/* Estilos para el menú toggle */
+.menu-toggle {
+    display: none; /* Ocultamos inicialmente el menú toggle en pantallas grandes */
+}
+
+.menu-toggle.active div:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active div:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Mostramos el menú toggle solo en dispositivos móviles */
+        flex-direction: column;
+        align-items: flex-end; /* Alineamos los íconos del menú toggle a la derecha */
+        justify-content: center; /* Centramos verticalmente los íconos */
+        height: 30px; /* Ajuste del alto del menú toggle según necesites */
+        width: 30px; /* Ajuste del ancho del menú toggle según necesites */
+        position: absolute;
+        top: 20px; /* Ajuste de la posición vertical del menú toggle según necesites */
+        right: 20px; /* Ajuste de la posición horizontal del menú toggle según necesites */
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    }
+
+    .menu-toggle div {
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        margin: 4px 0;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        background-color: #4caf50;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1; /* Asegura que el menú esté por encima de otros elementos */
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}

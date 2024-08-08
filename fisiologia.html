@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisiología del Ejercicio - Vital Nutri</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f3f3f3;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #4caf50;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo h1 {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #388E3C;
+            transform: scale(1.1);
+        }
+
+        /* Submenú desplegable */
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #4caf50;
+            z-index: 1;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .submenu a {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .submenu a:hover {
+            background-color: #388E3C;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
+        }
+
+        /* Estilos para la sección de fisiología del ejercicio */
+        #physiology {
+            background-color: #fff;
+            padding: 50px 20px;
+            margin: 50px auto;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #physiology h2 {
+            font-size: 2.5em;
+            color: #388E3C;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #physiology p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        #physiology h3 {
+            font-size: 2em;
+            color: #388E3C;
+            margin-bottom: 10px;
+        }
+
+        #physiology ul {
+            margin-bottom: 20px;
+        }
+
+        #physiology li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        #physiology li strong {
+            color: #388E3C;
+        }
+
+        /* Estilos para centrar imágenes */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Estilos para el menú hamburguesa */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.4s;
+            position: relative;
+            transform-origin: center;
+        }
+
+        .menu-icon span:before,
+        .menu-icon span:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            transition: transform 0.4s;
+        }
+
+        .menu-icon span:before {
+            top: -10px;
+        }
+
+        .menu-icon span:after {
+            top: 10px;
+        }
+
+        /* Media Query para dispositivos móviles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #4caf50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 2;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+            }
+
+            nav ul li a {
+                padding: 15px 0;
+                border-bottom: 1px solid #388E3C;
+            }
+
+            nav ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+
+            .menu-icon.active span {
+                background-color: transparent;
+            }
+
+            .menu-icon.active span:before {
+                transform: translateY(10px) rotate(45deg);
+            }
+
+            .menu-icon.active span:after {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Vital Nutri</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#">Sustento Teórico</a>
+                    <div class="submenu" id="submenu-sustento">
+                        <a href="fisiologia.html">Fisiología del Ejercicio</a>
+                        <a href="principios.html">Principios del Entrenamiento</a>
+                        <a href="componentes.html">Componentes de una Rutina</a>
+                        <a href="aspectos.html">Aspectos Psicológicos</a>
+                        <a href="nutricion.html">Nutrición Deportiva</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Más</a>
+                    <div class="submenu">
+                        <a href="blog.html">Blog</a>
+                        <a href="comparacion.html">Comparación de Alimentos</a>
+                        <a href="ejercicio.html">Recomendaciones de Ejercicio</a>
+                    </div>
+                </li>
+                <li><a href="acercade.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Fisiología del Ejercicio Section -->
+    <section id="physiology">
+        <div class="container">
+            <h2>Fisiología del Ejercicio</h2>
+            <p>La fisiología del ejercicio estudia cómo responde y se adapta el cuerpo humano al ejercicio físico. Esta ciencia abarca los cambios en los sistemas cardiovascular, respiratorio, muscular y metabólico que ocurren durante y después del ejercicio.</p>
+            
+            <!-- Imagen 1 -->
+            <div class="image-container">
+                <img src="images/imagen1.png" alt="Descripción de la imagen 1">
+            </div>
+
+            <h3>Sistema Cardiovascular</h3>
+            <ul>
+                <li><strong>Aumento de la frecuencia cardíaca:</strong> El corazón bombea más rápido para aumentar el flujo sanguíneo hacia los músculos activos.</li>
+                <li><strong>Dilatación de los vasos sanguíneos:</strong> Los vasos se ensanchan para permitir un mayor flujo sanguíneo a través de los músculos.</li>
+                <li><strong>Incremento en el volumen sistólico:</strong> Cada latido del corazón bombea más sangre, aumentando así el volumen sistólico.</li>
+            </ul>
+            
+            <!-- Imagen 2 -->
+            <div class="image-container">
+                <img src="images/imagen2.jpg" alt="Descripción de la imagen 2">
+            </div>
+
+            <h3>Sistema Respiratorio</h3>
+            <ul>
+                <li><strong>Aumento en la ventilación pulmonar:</strong> La frecuencia y la profundidad de la respiración aumentan para satisfacer las demandas metabólicas durante el ejercicio.</li>
+                <li><strong>Mejora en el intercambio gaseoso:</strong> Los alvéolos pulmonares optimizan la transferencia de oxígeno y dióxido de carbono.</li>
+            </ul>
+            
+            <!-- Imagen 3 -->
+            <div class="image-container">
+                <img src="images/imagen3.jpg" alt="Descripción de la imagen 3">
+            </div>
+
+            <h3>Sistema Muscular</h3>
+            <ul>
+                <li><strong>Hipertrofia muscular:</strong> Los músculos experimentan un aumento en el tamaño de las fibras musculares como respuesta al entrenamiento de resistencia.</li>
+                <li><strong>Mejora en la fuerza y resistencia muscular:</strong> El ejercicio de fuerza aumenta la capacidad de generar fuerza, mientras que los ejercicios aeróbicos mejoran la resistencia muscular.</li>
+            </ul>
+            
+            <!-- Imagen 4 -->
+            <div class="image-container">
+                <img src="images/imagen4.jpg" alt="Descripción de la imagen 4">
+            </div>
+
+            <h3>Metabolismo</h3>
+            <ul>
+                <li><strong>Mayor utilización de glucosa y ácidos grasos:</strong> Durante el ejercicio, los músculos utilizan glucosa y ácidos grasos como combustible principal para la contracción muscular.</li>
+                <li><strong>Aumento en la eficiencia del metabolismo aeróbico:</strong> Con el entrenamiento regular, se mejora la capacidad del cuerpo para utilizar oxígeno de manera más eficiente.</li>
+            </ul>
+            
+            <!-- Imagen 5 -->
+            <div class="image-container">
+                <img src="images/imagen5.jpg" alt="Descripción de la imagen 5">
+            </div>
+
+            <p>Estos son algunos aspectos clave de la fisiología del ejercicio, que muestran cómo el cuerpo humano se adapta y responde a la actividad física regular, mejorando la salud y el rendimiento físico.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Vital Nutri. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            const menuIcon = document.querySelector('.menu-icon');
+
+            menu.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

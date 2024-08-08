@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparación de Alimentos - Vital Nutri</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f3f3f3;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #4caf50;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo h1 {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 15px; /* Ajuste de margen derecho para separar los elementos */
+        }
+
+        nav ul li:last-child {
+            margin-right: 0; /* Elimina el margen derecho del último elemento */
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #388E3C;
+            transform: scale(1.1);
+        }
+
+        /* Submenú desplegable */
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #4caf50;
+            z-index: 1;
+            width: 200px; /* Ancho del submenú desplegable */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el submenú */
+        }
+
+        .submenu a {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .submenu a:hover {
+            background-color: #388E3C;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
+        }
+
+        /* Estilos para la sección de comparación de alimentos */
+        #comparison {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        #comparison h2 {
+            font-size: 2.5em;
+            color: #388E3C;
+            margin-bottom: 20px;
+        }
+
+        .comparison-table {
+            margin-bottom: 30px;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .comparison-table table thead {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .comparison-table table th,
+        .comparison-table table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .food-description {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .food-description h3 {
+            font-size: 1.8em;
+            color: #388E3C;
+            margin-bottom: 10px;
+        }
+
+        .food-description p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .note {
+            font-style: italic;
+            color: #777;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Estilos para el menú hamburguesa */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.4s;
+            position: relative;
+            transform-origin: center;
+        }
+
+        .menu-icon span:before,
+        .menu-icon span:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            transition: transform 0.4s;
+        }
+
+        .menu-icon span:before {
+            top: -10px;
+        }
+
+        .menu-icon span:after {
+            top: 10px;
+        }
+
+        /* Media Query para dispositivos móviles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #4caf50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 2;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+            }
+
+            nav ul li a {
+                padding: 15px 0;
+                border-bottom: 1px solid #388E3C;
+            }
+
+            nav ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+
+            .menu-icon.active span {
+                background-color: transparent;
+            }
+
+            .menu-icon.active span:before {
+                transform: translateY(10px) rotate(45deg);
+            }
+
+            .menu-icon.active span:after {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Vital Nutri</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#">Sustento Teórico</a>
+                    <div class="submenu">
+                        <a href="fisiologia.html">Fisiología del Ejercicio</a>
+                        <a href="principios.html">Principios del Entrenamiento</a>
+                        <a href="componentes.html">Componentes de una Rutina</a>
+                        <a href="aspectos.html">Aspectos Psicológicos</a>
+                        <a href="nutricion.html">Nutrición Deportiva</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Más</a>
+                    <div class="submenu">
+                        <a href="blog.html">Blog</a>
+                        <a href="comparacion.html">Comparación de Alimentos</a>
+                        <a href="ejercicio.html">Recomendaciones de Ejercicio</a>
+                    </div>
+                </li>
+                <li><a href="acercade.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Comparación de Alimentos Section -->
+    <section id="comparison">
+        <h2>Comparación de Alimentos</h2>
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Alimento</th>
+                        <th>Calorías</th>
+                        <th>Proteínas</th>
+                        <th>Carbohidratos</th>
+                        <th>Grasas</th>
+                        <th>Fibra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aguacate (por unidad)</td>
+                        <td>160</td>
+                        <td>2g</td>
+                        <td>9g</td>
+                        <td>15g</td>
+                        <td>7g</td>
+                    </tr>
+                    <tr>
+                        <td>Quinoa (por taza, cocida)</td>
+                        <td>222</td>
+                        <td>8g</td>
+                        <td>39g</td>
+                        <td>4g</td>
+                        <td>5g</td>
+                    </tr>
+                    <tr>
+                        <td>Arroz Integral (por taza, cocido)</td>
+                        <td>218</td>
+                        <td>5g</td>
+                        <td>45g</td>
+                        <td>1.6g</td>
+                        <td>4g</td>
+                    </tr>
+                    <tr>
+                        <td>Pollo (pechuga, por 100g)</td>
+                        <td>165</td>
+                        <td>31g</td>
+                        <td>0g</td>
+                        <td>3.6g</td>
+                        <td>0g</td>
+                    </tr>
+                    <tr>
+                        <td>Salmón (por 100g)</td>
+                        <td>206</td>
+                        <td>20g</td>
+                        <td>0g</td>
+                        <td>13g</td>
+                        <td>0g</td>
+                    </tr>
+                    <tr>
+                        <td>Espinacas (por 100g)</td>
+                        <td>23</td>
+                        <td>2.9g</td>
+                        <td>3.6g</td>
+                        <td>0.4g</td>
+                        <td>2.2g</td>
+                    </tr>
+                    <tr>
+                        <td>Almendras (por 30g)</td>
+                        <td>173</td>
+                        <td>6g</td>
+                        <td>6g</td>
+                        <td>15g</td>
+                        <td>4g</td>
+                    </tr>
+                    <tr>
+                        <td>Manzana (por 100g)</td>
+                        <td>52</td>
+                        <td>0.3g</td>
+                        <td>14g</td>
+                        <td>0.2g</td>
+                        <td>2.4g</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="food-description">
+            <h3>Aguacate</h3>
+            <p>El aguacate es rico en grasas saludables, especialmente ácido oleico, que es beneficioso para el corazón. También contiene fibra, vitaminas y minerales, incluyendo potasio, que ayuda a regular la presión arterial.</p>
+        </div>
+
+        <div class="food-description">
+            <h3>Quinoa</h3>
+            <p>La quinoa es una proteína completa, lo que significa que contiene todos los aminoácidos esenciales. Es rica en fibra, magnesio, vitaminas del grupo B, hierro, potasio, calcio, fósforo, vitamina E y diversos antioxidantes.</p>
+        </div>
+
+        <div class="food-description">
+            <h3>Arroz Integral</h3>
+            <p>El arroz integral es una buena fuente de manganeso, magnesio y selenio. Contiene más fibra que el arroz blanco, lo que puede ayudar a mejorar la digestión y proporcionar una sensación de saciedad.</p>
+        </div>
+
+        <div class="food-description">
+            <h3>Pollo</h3>
+            <p>El pollo es una excelente fuente de proteínas de alta calidad. Es bajo en grasas y proporciona una variedad de nutrientes esenciales, como vitamina B6 y niacina, que son importantes para el metabolismo energético.</p>
+        </div>
+
+        <div class="food-description">
+            <h3>Salmón</h3>
+            <p>El salmón es una excelente fuente de ácidos grasos omega-3, que son beneficiosos para la salud cardiovascular y cerebral. También es rico en proteínas de alta calidad, vitaminas del grupo B y minerales como el selenio.</p>
+        </div>
+
+        <div class="food-description">
+            <h3>Espinacas</h3>
+            <p>Las espinacas son ricas en hierro, calcio, vitaminas A, C y K, así como en antioxidantes que ayudan a proteger las células del daño. También son bajas en calorías, lo que las hace ideales para una dieta saludable.</p>
+        </div>
+
+        <div class="food-description">
+            <h3>Almendras</h3>
+            <p>Las almendras son una excelente fuente de grasas saludables, proteínas, fibra, vitamina E y magnesio. Ayudan a reducir el colesterol y a mantener la salud del corazón.</p>
+        </div>
+
+        <div class="food-description">
+            <h3>Manzana</h3>
+            <p>Las manzanas son ricas en fibra y antioxidantes, como la vitamina C. Ayudan a mantener la salud del corazón, mejorar la digestión y controlar el azúcar en sangre.</p>
+        </div>
+
+        <p class="note">Los valores nutricionales son aproximados y pueden variar según el tipo de preparación y porción.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Vital Nutri. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            const menuIcon = document.querySelector('.menu-icon');
+
+            menu.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+
+

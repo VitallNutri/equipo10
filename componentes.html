@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes de una Rutina de Ejercicio - Vital Nutri</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f3f3f3;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #4caf50;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo h1 {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 15px; /* Ajuste de margen derecho para separar los elementos */
+        }
+
+        nav ul li:last-child {
+            margin-right: 0; /* Elimina el margen derecho del último elemento */
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #388E3C;
+            transform: scale(1.1);
+        }
+
+        /* Submenú desplegable */
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #4caf50;
+            z-index: 1;
+            width: 200px; /* Ancho del submenú desplegable */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el submenú */
+        }
+
+        .submenu a {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .submenu a:hover {
+            background-color: #388E3C;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
+        }
+
+        /* Estilos para la sección de componentes de una rutina de ejercicio */
+        #exercise-components {
+            background-color: #fff;
+            padding: 50px 20px;
+            margin: 50px auto;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #exercise-components h2 {
+            font-size: 2.5em;
+            color: #388E3C;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #exercise-components p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        #exercise-components h3 {
+            font-size: 2em;
+            color: #388E3C;
+            margin-bottom: 10px;
+        }
+
+        #exercise-components ul {
+            margin-bottom: 20px;
+        }
+
+        #exercise-components li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        #exercise-components li strong {
+            color: #388E3C;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Estilos para el menú hamburguesa */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.4s;
+            position: relative;
+            transform-origin: center;
+        }
+
+        .menu-icon span:before,
+        .menu-icon span:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            transition: transform 0.4s;
+        }
+
+        .menu-icon span:before {
+            top: -10px;
+        }
+
+        .menu-icon span:after {
+            top: 10px;
+        }
+
+        /* Media Query para dispositivos móviles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #4caf50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 2;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+            }
+
+            nav ul li a {
+                padding: 15px 0;
+                border-bottom: 1px solid #388E3C;
+            }
+
+            nav ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+
+            .menu-icon.active span {
+                background-color: transparent;
+            }
+
+            .menu-icon.active span:before {
+                transform: translateY(10px) rotate(45deg);
+            }
+
+            .menu-icon.active span:after {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Vital Nutri</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#">Sustento Teórico</a>
+                    <div class="submenu">
+                        <a href="fisiologia.html">Fisiología del Ejercicio</a>
+                        <a href="principios.html">Principios del Entrenamiento</a>
+                        <a href="componentes.html">Componentes de una Rutina</a>
+                        <a href="aspectos.html">Aspectos Psicológicos</a>
+                        <a href="nutricion.html">Nutrición Deportiva</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Más</a>
+                    <div class="submenu">
+                        <a href="blog.html">Blog</a>
+                        <a href="comparacion.html">Comparación de Alimentos</a>
+                        <a href="ejercicio.html">Recomendaciones de Ejercicio</a>
+                    </div>
+                </li>
+                <li><a href="acercade.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Componentes de una Rutina de Ejercicio Section -->
+    <section id="exercise-components">
+        <div class="container">
+            <h2>Componentes de una Rutina de Ejercicio</h2>
+            <p>Una rutina de ejercicios bien equilibrada debe incluir varios componentes para abordar las necesidades físicas y fisiológicas del individuo. Estos componentes son fundamentales para promover una salud integral y mejorar la calidad de vida a través del ejercicio físico regular.</p>
+            <div class="image-container">
+                <img src="images/imagen_2.jpg" alt="Descripción de la imagen 1">
+            </div>
+
+            <h3>Calentamiento y Enfriamiento</h3>
+            <p>Preparar el cuerpo para el ejercicio y ayudar a recuperarse después. Un buen calentamiento aumenta la temperatura corporal y la circulación, mientras que el enfriamiento ayuda a reducir la frecuencia cardíaca y prevenir la rigidez muscular.</p>
+
+            <h3>Ejercicio Aeróbico</h3>
+            <p>Actividades como correr, nadar o andar en bicicleta que mejoran la resistencia cardiovascular. El ejercicio aeróbico fortalece el corazón y los pulmones, y aumenta la capacidad del cuerpo para utilizar oxígeno de manera eficiente.</p>
+
+            <h3>Ejercicio de Fuerza</h3>
+            <p>Entrenamiento con pesas o resistencia para aumentar la masa muscular y la fuerza. Este tipo de ejercicio también mejora la densidad ósea y la salud metabólica, contribuyendo a un metabolismo más activo.</p>
+
+            <h3>Flexibilidad y Movilidad</h3>
+            <p>Estiramientos y ejercicios que mejoran el rango de movimiento de las articulaciones. La flexibilidad y la movilidad son esenciales para mantener la funcionalidad y prevenir lesiones, permitiendo una mayor libertad de movimiento.</p>
+
+            <h3>Equilibrio y Coordinación</h3>
+            <p>Ejercicios que ayudan a mejorar la estabilidad y la coordinación neuromuscular. Un buen equilibrio y coordinación son importantes para realizar actividades diarias y deportivas con mayor eficacia y seguridad.</p>
+
+            <p>Incorporar estos componentes en una rutina de ejercicios asegura un enfoque integral del entrenamiento, promoviendo una condición física óptima y un bienestar general.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Vital Nutri. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            const menuIcon = document.querySelector('.menu-icon');
+
+            menu.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+

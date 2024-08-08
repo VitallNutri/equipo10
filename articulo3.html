@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficios del Brócoli para la Salud - Vital Nutri</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f3f3f3;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #4caf50;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo h1 {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 15px; /* Ajuste de margen derecho para separar los elementos */
+        }
+
+        nav ul li:last-child {
+            margin-right: 0; /* Elimina el margen derecho del último elemento */
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #388E3C;
+            transform: scale(1.1);
+        }
+
+        /* Submenú desplegable */
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #4caf50;
+            z-index: 1;
+            width: 200px; /* Ancho del submenú desplegable */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el submenú */
+        }
+
+        .submenu a {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .submenu a:hover {
+            background-color: #388E3C;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
+        }
+
+        /* Estilos para el menú hamburguesa */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.4s;
+            position: relative;
+            transform-origin: center;
+        }
+
+        .menu-icon span:before,
+        .menu-icon span:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            transition: transform 0.4s;
+        }
+
+        .menu-icon span:before {
+            top: -10px;
+        }
+
+        .menu-icon span:after {
+            top: 10px;
+        }
+
+        /* Media Query para dispositivos móviles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #4caf50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 2;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+            }
+
+            nav ul li a {
+                padding: 15px 0;
+                border-bottom: 1px solid #388E3C;
+            }
+
+            nav ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+
+            .menu-icon.active span {
+                background-color: transparent;
+            }
+
+            .menu-icon.active span:before {
+                transform: translateY(10px) rotate(45deg);
+            }
+
+            .menu-icon.active span:after {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Vital Nutri</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#">Sustento Teórico</a>
+                    <div class="submenu">
+                        <a href="fisiologia.html">Fisiología del Ejercicio</a>
+                        <a href="principios.html">Principios del Entrenamiento</a>
+                        <a href="componentes.html">Componentes de una Rutina</a>
+                        <a href="aspectos.html">Aspectos Psicológicos</a>
+                        <a href="nutricion.html">Nutrición Deportiva</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Más</a>
+                    <div class="submenu">
+                        <a href="blog.html">Blog</a>
+                        <a href="comparacion.html">Comparación de Alimentos</a>
+                        <a href="ejercicio.html">Recomendaciones de Ejercicio</a>
+                    </div>
+                </li>
+                <li><a href="acercade.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Artículo Completo -->
+    <section id="article">
+        <h2>Beneficios del Brócoli para la Salud</h2>
+        <img src="images/brocoli1.jpg" alt="Brócoli fresco" class="featured-image">
+        <p>El brócoli es una verdura crucífera que ofrece numerosos beneficios para la salud. Su alto contenido de nutrientes y compuestos bioactivos lo convierte en un alimento esencial para una dieta equilibrada y saludable.</p>
+
+        <h3>Rico en Nutrientes</h3>
+        <p>El brócoli es una excelente fuente de vitaminas y minerales, incluyendo:</p>
+        <ul>
+            <li><strong>Vitamina C:</strong> Un potente antioxidante que ayuda a fortalecer el sistema inmunológico.</li>
+            <li><strong>Vitamina K:</strong> Esencial para la coagulación de la sangre y la salud ósea.</li>
+            <li><strong>Fibra:</strong> Promueve la salud digestiva y ayuda a mantener niveles saludables de azúcar en la sangre.</li>
+            <li><strong>Folate:</strong> Importante para el crecimiento y la función celular adecuada.</li>
+        </ul>
+
+        <h3>Propiedades Antioxidantes</h3>
+        <p>El brócoli contiene varios antioxidantes poderosos, como el sulforafano, que ayudan a combatir el estrés oxidativo y reducir la inflamación en el cuerpo.</p>
+
+        <h3>Apoyo al Sistema Inmunológico</h3>
+        <p>Gracias a su alto contenido de vitamina C y otros antioxidantes, el brócoli puede fortalecer el sistema inmunológico y ayudar a proteger contra enfermedades.</p>
+
+        <h3>Beneficios para la Salud Digestiva</h3>
+        <p>La fibra en el brócoli promueve la regularidad intestinal y apoya la salud del sistema digestivo. Consumir suficiente fibra puede prevenir problemas como el estreñimiento y la diverticulitis.</p>
+
+        <h3>Propiedades Anticancerígenas</h3>
+        <p>Estudios han demostrado que el brócoli contiene compuestos bioactivos que pueden reducir el riesgo de ciertos tipos de cáncer, incluyendo el cáncer de colon, mama y próstata. El sulforafano, en particular, ha mostrado efectos prometedores en la inhibición del crecimiento de células cancerosas.</p>
+
+        <h3>Salud Cardiovascular</h3>
+        <p>El consumo regular de brócoli puede apoyar la salud del corazón al mejorar los niveles de colesterol, reducir la presión arterial y disminuir el riesgo de enfermedades cardíacas. Sus antioxidantes y fibra juegan un papel crucial en estos beneficios.</p>
+
+        <blockquote>
+            <p>"El brócoli es uno de los alimentos más saludables que puedes comer. Es como un multivitamínico en forma de vegetal." - Michael Greger</p>
+        </blockquote>
+
+        <h3>Cómo Incorporar el Brócoli en tu Dieta</h3>
+        <p>El brócoli es una verdura versátil que puede ser incorporada en una variedad de platos:</p>
+        <ul>
+            <li><strong>Al Vapor:</strong> Cocina el brócoli al vapor para preservar sus nutrientes y disfrutar de su textura crujiente.</li>
+            <li><strong>En Ensaladas:</strong> Añade brócoli crudo o ligeramente cocido a tus ensaladas para un toque de frescura y nutrición.</li>
+            <li><strong>En Sopas y Guisos:</strong> El brócoli puede ser un ingrediente excelente en sopas y guisos, aportando sabor y nutrientes.</li>
+            <li><strong>Salteado:</strong> Saltea brócoli con otros vegetales y proteínas para un plato principal saludable y delicioso.</li>
+        </ul>
+
+        <p>Incorporar el brócoli en tu dieta diaria puede proporcionar numerosos beneficios para la salud y mejorar tu bienestar general.</p>
+
+        <h3>Conclusión</h3>
+        <p>El brócoli es una adición nutritiva y deliciosa a cualquier dieta. Sus numerosos beneficios para la salud, desde la mejora de la salud digestiva hasta la reducción del riesgo de cáncer, hacen que este vegetal sea esencial en tu alimentación diaria. ¡Asegúrate de incluir brócoli en tus comidas y disfruta de sus increíbles propiedades!</p>
+
+        <p>Vuelve <a href="blog.html">atrás</a> para ver más artículos.</p>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Vital Nutri. Todos los derechos reservados.</p>
+            
+        </div>
+    </footer>
+
+    <!-- Script para menú hamburguesa -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            const menuIcon = document.querySelector('.menu-icon');
+
+            menu.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+
